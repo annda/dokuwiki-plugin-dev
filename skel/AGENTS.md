@@ -19,7 +19,6 @@ It's for @@PLUGIN_DESC@@
 Tests run via DokuWiki's PHPUnit-based testing framework:
 
 ```bash
-# Tests must be run from repository root
 ../../../bin/plugin.php dev test
 
 # run individual test file
@@ -46,10 +45,10 @@ Each test run will provide a fresh DokuWiki instance in a temporary directory vi
 Adhere to PSR-12 coding standards. Always add proper docblocks with descriptions, parameter types, and return types to all classes, methods and functions.
 
 ```bash
-# Lint PHP files using PHP_CodeSniffer (must be run from repo root)
+# Lint PHP files using PHP_CodeSniffer
 ../../../bin/plugin.php dev check
 
-# Auto-Fix formatting issues using PHP_CBF and Rector (must be run from repo root)
+# Auto-Fix formatting issues using PHP_CBF and Rector
 ../../../bin/plugin.php dev fix
 ```
 
@@ -79,7 +78,7 @@ Create style files to target specific modes:
 Inspect the base plugin classes in `../../../inc/Extension/` to learn about the plugin system architecture.
 
 ```bash
-# add new plugin components (must be run from repo root)
+# add new plugin components
 ../../../bin/plugin.php dev addComponent <type>
 # e.g.
 ../../../bin/plugin.php dev addComponent action
@@ -97,7 +96,7 @@ Text output to users should not be hardcoded, but stored as language strings in 
 If not present yet, initialize via dev plugin:
 
 ```bash
-# add new English default files (must be run from repo root)
+# add new English default files
 ../../../bin/plugin.php dev addLang
 ```
 
@@ -116,6 +115,9 @@ In JavaScript files, fetch them from the global object: `LANG.plugins.@@PLUGIN_N
 Put all plugin configuration options in the `conf/` directory. If it doesn't exist, initialize with the dev plugin:
 
 ```bash
-# add config files (must be run from repo root)
+# add config files
 ../../../bin/plugin.php dev addConf
 ```
+### Deleting files
+
+When deleting files known to Git, list them in the `deleted.files` file.
